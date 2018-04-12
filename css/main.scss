@@ -1,14 +1,12 @@
+/* default ---------------------------------------------------------------------------------------------------------- */
+
 $green: #6ABC1C;
 $blue: #0F6DCE;
 $turquoise: #169E93;
 
-@mixin gradient {
-  background: $blue;
-  background: -moz-linear-gradient(-45deg, $blue 0%, #169b96 100%);
-  background: -webkit-linear-gradient(-45deg, #0f6ecc 0%, #169b96 100%);
-  background: linear-gradient(135deg, #0f6ecc 0%, #169b96 100%);
-  filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#0f6ecc', endColorstr='#169b96', GradientType=1);
-}
+$padding: 10px;
+$margin: 10px;
+$grid-gap: $margin * 4;
 
 * {
   margin:             0;
@@ -16,5 +14,139 @@ $turquoise: #169E93;
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
+  font-family:        'Montserrat', sans-serif;
 }
 
+html {
+  font-size: 1em;
+}
+
+body {
+  line-height: 1.45;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fugaz One', cursive;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+h1, h2, h3, h4 {
+  margin:      1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+h1, h2, h3, h4 {
+  margin:      1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size:  3.157em;
+}
+
+h2 {
+  font-size: 2.369em;
+}
+
+h3 {
+  font-size: 1.777em;
+}
+
+h4 {
+  font-size: 1.333em;
+}
+
+small {
+  font-size: 0.75em;
+}
+
+.gradient {
+  background:        $blue;
+  background:        -moz-linear-gradient(-45deg, $blue 0%, $turquoise 100%);
+  background:        -webkit-linear-gradient(-45deg, $blue 0%, $turquoise 100%);
+  background:        linear-gradient(135deg, $blue 0%, $turquoise 100%);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorstr='#169E93', endColorstr='#0F6DCE', GradientType=1);
+  background-repeat: no-repeat;
+}
+
+/* layout ----------------------------------------------------------------------------------------------------------- */
+
+.grid {
+  display:  grid;
+  padding:  0;
+  overflow: hidden;
+  grid-gap: $grid-gap;
+
+  img {
+    width: 100%;
+  }
+}
+
+.c3 {
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 640px + $grid-gap * 2) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 960px + $grid-gap * 3) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.c2-1 {
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 640px + $grid-gap * 2) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 960px + $grid-gap * 2) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.c1-2 {
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 640px + $grid-gap * 2) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 960px + $grid-gap * 2) {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.c2 {
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 640px + $grid-gap * 2) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .c2 {
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 1280px + $grid-gap * 2) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+.c1 {
+  grid-template-columns: 1fr;
+}
+
+.vertical-center {
+  position:          relative;
+  top:               50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  -o-transform:      translateY(-50%);
+  transform:         translateY(-50%);
+}
+
+/* font ------------------------------------------------------------------------------------------------------------- */
